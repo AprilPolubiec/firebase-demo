@@ -3,9 +3,8 @@ import React, { useState } from 'react'
 import Button from "@material-ui/core/Button"
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
 
-import { auth } from "../firebase"
+import { auth, signInWithGoogleProvider } from "../firebase"
 
 export default function Landing() {
     const [email, setEmail] = useState("");
@@ -28,7 +27,7 @@ export default function Landing() {
 
     const handleSignIn = () => {
         // TODO: make sure to enable this in firebase dash
-        return auth.signInWithEmailAndPassword(email, password).then(r=>console.log(r)).catch(e => setError(e.message))
+        return auth.signInWithEmailAndPassword(email, password).then(r => console.log(r)).catch(e => setError(e.message))
     }
 
     const handleSignUp = () => {
@@ -43,6 +42,9 @@ export default function Landing() {
                 <TextField id="password" label="Password" type="password" variant="outlined" value={password} onChange={handleChange} />
                 <Button variant="contained" color="primary" onClick={handleSignIn}>
                     Sign In
+                </Button>
+                <Button variant="contained" color="primary" onClick={signInWithGoogleProvider}>
+                    Sign In with Google
                 </Button>
                 <Button variant="outlined" color="primary" onClick={handleSignUp}>
                     Sign Up
