@@ -12,9 +12,8 @@ const Auth = ({ children }) => {
         const authListener = auth.onAuthStateChanged((user) => {
             setUser(user)
             setAuthLoaded(true)
-
         })
-        return authListener()
+        return () => authListener()
     }, [])
 
     const context = {
