@@ -16,9 +16,14 @@ const Auth = ({ children }) => {
         return () => authListener()
     }, [])
 
+    const handleSignOut = () => {
+        return auth.signOut();
+    }
+
     const context = {
         user,
-        authLoaded
+        authLoaded,
+        handleSignOut
     }
 
     return (

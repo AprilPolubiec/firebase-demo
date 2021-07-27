@@ -4,6 +4,8 @@ import Auth, { useAuth } from "./hooks/useAuth"
 import PrivateRoutes from './routes/PrivateRoutes';
 import PublicRoutes from './routes/PublicRoutes';
 
+import NavBar from './components/NavBar';
+
 function App() {
   return (
     <Auth>
@@ -21,6 +23,7 @@ function RequireAuthentication() {
 
   return (
     <>
+      <NavBar />
       {auth.user ? (
         <PrivateRoutes />
       ) : (
