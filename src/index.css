@@ -34,3 +34,12 @@ code {
   height: 15rem;
   justify-content: space-around;
 }
+
+#cat-collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+}
