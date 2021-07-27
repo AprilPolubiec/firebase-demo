@@ -19,13 +19,13 @@ exports.addUserToFirestore = functions.auth.user().onCreate((user) => {
     });
 });
 
-// exports.getCatPhoto = functions.https.onCall((data, context) => {
-//   console.log("Received request: ", data);
-//   return axios
-//     .get(`${CAT_ENDPOINT}/images/search?api_key=${catApiKey}`)
-//     .then((res) => {
-//       const photo = res[0].url;
-//       return photo;
-//     })
-//     .catch((error) => error);
-// });
+exports.getCatPhoto = functions.https.onCall((data, context) => {
+  console.log("Received request: ", data);
+  return axios
+    .get(`${CAT_ENDPOINT}/images/search?api_key=${catApiKey}`)
+    .then((res) => {
+      const photo = res[0].url;
+      return photo;
+    })
+    .catch((error) => error);
+});
