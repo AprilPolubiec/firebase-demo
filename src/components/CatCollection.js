@@ -28,7 +28,7 @@ export default function CatCollection() {
       .collection("users")
       .doc(auth.user.uid)
       .collection("cats")
-      .orderBy("createdAt")
+      .orderBy("createdAt", "desc")
       .onSnapshot((snap) => {
         const cat_data = snap.docs
           .filter((d) => d.data().photo)
@@ -83,7 +83,7 @@ export default function CatCollection() {
         </DialogActions>
       </Dialog>
 
-      <ImageList rowHeight={180} style={{ width: 500, height: 450 }}>
+      <ImageList rowHeight={180} style={{ width: 800, height: 500 }}>
         <ImageListItem key="Subheader" cols={2} style={{ height: "auto" }}>
           <ListSubheader component="div">My Cats</ListSubheader>
         </ImageListItem>
